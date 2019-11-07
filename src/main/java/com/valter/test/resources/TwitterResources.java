@@ -12,45 +12,45 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.valter.test.domain.User;
-import com.valter.test.service.UserService;
+import com.valter.test.domain.Twitter;
+import com.valter.test.service.TwitterService;
 
 @RestController
-@RequestMapping(value = "users")
-public class UserResources {
+@RequestMapping(value = "tweets")
+public class TwitterResources {
 
 	@Autowired
-	UserService uService;
+	TwitterService uService;
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Void> insert(@RequestBody User obj) {
-		obj = uService.insertUser(obj);
+	public ResponseEntity<Void> insert(@RequestBody Twitter obj) {
+		obj = uService.insertTwitter(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<User>> findAll() {
-		List<User> lista = uService.findAll();
+	public ResponseEntity<List<Twitter>> findAll() {
+		List<Twitter> lista = uService.findTwitterAll();
 		return ResponseEntity.ok().body(lista);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<User> find(@PathVariable Integer id) {
-		User obj = uService.findUserById(id);
+	public ResponseEntity<Twitter> find(@PathVariable Integer id) {
+		Twitter obj = uService.findTwitterById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Void> update(@RequestBody User obj, @PathVariable Integer id) {
+	public ResponseEntity<Void> update(@RequestBody Twitter obj, @PathVariable Integer id) {
 		obj.setId(id);
-		obj = uService.updateUser(obj);
+		obj = uService.updateTwitter(obj);
 		return ResponseEntity.noContent().build();
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteUser(@PathVariable Integer id) {
-		uService.deleteUser(id);
+	public ResponseEntity<Void> deleteTwitter(@PathVariable Integer id) {
+		uService.deleteTwitter(id);
 		return ResponseEntity.noContent().build();
 	}
 }

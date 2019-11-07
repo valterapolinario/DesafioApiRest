@@ -19,26 +19,26 @@ public class UserService {
 		return repo.findAll();
 	}
 
-	public User findById(Integer id) {
+	public User findUserById(Integer id) {
 		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + User.class.getSimpleName()));
 
 	}
 
-	public User insert(User obj) {
+	public User insertUser(User obj) {
 		obj.setId(null);
 		return repo.save(obj);
 	}
 
-	public User update(User obj) {
+	public User updateUser(User obj) {
 
-		User newObj = findById(obj.getId());
+		User newObj = findUserById(obj.getId());
 		return repo.save(newObj);
 	}
 
-	public void delete(Integer id) {
-		findById(id);
+	public void deleteUser(Integer id) {
+		findUserById(id);
 
 		repo.deleteById(id);
 
