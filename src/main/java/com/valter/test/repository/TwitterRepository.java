@@ -1,10 +1,10 @@
 package com.valter.test.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.valter.test.domain.Twitter;
 import com.valter.test.domain.User;
@@ -13,4 +13,7 @@ import com.valter.test.domain.User;
 public interface TwitterRepository extends JpaRepository<Twitter, Integer> {
 
 	List<Twitter> findByUser(User user);
+
+	@Transactional(readOnly = true)
+	List<Twitter> findTop10ByUserOrderByIdDesc(User user);
 }

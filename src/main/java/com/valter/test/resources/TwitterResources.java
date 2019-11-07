@@ -59,12 +59,20 @@ public class TwitterResources {
 		return ResponseEntity.noContent().build();
 	}
 
+	/*
+	 * @RequestMapping(value = "/{user}/{id}", method = RequestMethod.GET) public
+	 * ResponseEntity<List<Twitter>> findByUser(@PathVariable Integer id) { User
+	 * uObj = uService.findUserById(id); List<Twitter> lista =
+	 * tService.findTwitterByUser(uObj);
+	 * 
+	 * return ResponseEntity.ok().body(lista); }
+	 */
+
 	@RequestMapping(value = "/{user}/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Twitter>> findByUser(@PathVariable Integer id) {
+	public ResponseEntity<List<Twitter>> findTop10ByUser(@PathVariable Integer id) {
 		User uObj = uService.findUserById(id);
-		List<Twitter> lista = tService.findTwitterByUser(uObj);
+		List<Twitter> lista = tService.findTop10ByUserOrderByDesc(uObj);
 
 		return ResponseEntity.ok().body(lista);
 	}
-
 }

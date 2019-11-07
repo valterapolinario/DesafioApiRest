@@ -51,4 +51,8 @@ public class TwitterService {
 		return repo.findByUser(user);
 
 	}
+
+	public List<Twitter> findTop10ByUserOrderByDesc(User user) {
+		return repo.findTop10ByUserOrderByIdDesc(user);
+	}
 }
