@@ -1,11 +1,14 @@
 package com.valter.test.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable {
@@ -16,6 +19,9 @@ public class User implements Serializable {
 	private Integer id;
 	private String nome;
 	private String email;
+
+	@OneToMany(mappedBy = "user")
+	private List<Twitter> tweets = new ArrayList<>();
 
 	public User() {
 
@@ -50,6 +56,14 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Twitter> getTweets() {
+		return tweets;
+	}
+
+	public void setTweets(List<Twitter> tweets) {
+		this.tweets = tweets;
 	}
 
 	@Override

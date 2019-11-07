@@ -1,5 +1,7 @@
 package com.valter.test;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,9 +25,13 @@ public class DesafioApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		User user1 = new User(null, "alan", "alan@gmail.com");
 		Twitter twitter1 = new Twitter(null, "esta funcionando o tweet");
+		User user1 = new User(null, "alan", "alan@gmail.com");
+		
+		twitter1.setUser(user1);
+		user1.getTweets().addAll(Arrays.asList(twitter1));
+		
+		
 
 		uRepository.save(user1);
 		tRepository.save(twitter1);
