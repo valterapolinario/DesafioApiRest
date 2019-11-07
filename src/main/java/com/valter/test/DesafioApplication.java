@@ -26,15 +26,15 @@ public class DesafioApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Twitter twitter1 = new Twitter(null, "esta funcionando o tweet");
+		Twitter twitter2 = new Twitter(null, "esta funcionando o tweet e a coisa ta melhorando");
 		User user1 = new User(null, "alan", "alan@gmail.com");
-		
+
 		twitter1.setUser(user1);
-		user1.getTweets().addAll(Arrays.asList(twitter1));
-		
-		
+		twitter2.setUser(user1);
+		user1.getTweets().addAll(Arrays.asList(twitter1, twitter2));
 
 		uRepository.save(user1);
-		tRepository.save(twitter1);
+		tRepository.saveAll(Arrays.asList(twitter1, twitter2));
 	}
 
 }

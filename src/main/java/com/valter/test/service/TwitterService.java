@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.valter.test.domain.Twitter;
+import com.valter.test.domain.User;
 import com.valter.test.repository.TwitterRepository;
+import com.valter.test.repository.UserRepository;
 import com.valter.test.service.exceptions.ObjectNotFoundException;
 
 @Service
@@ -41,6 +43,12 @@ public class TwitterService {
 		findTwitterById(id);
 
 		repo.deleteById(id);
+
+	}
+
+	public List<Twitter> findTwitterByUser(User user) {
+
+		return repo.findByUser(user);
 
 	}
 }
