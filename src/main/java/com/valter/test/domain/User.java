@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -22,6 +26,13 @@ public class User implements Serializable {
 
 	@OneToMany(mappedBy = "user")
 	private List<Twitter> tweets = new ArrayList<>();
+	
+	@ManyToMany
+	@JoinTable( name ="USER_FOLLOWER",
+			joinColumns = @JoinColumn(name ="produto_id"),
+			inverseJoinColumns =@JoinColumn(name="user_id")
+			)
+	private List<Follower> followers = new ArrayList<>();
 
 	public User() {
 
@@ -64,6 +75,14 @@ public class User implements Serializable {
 
 	public void setTweets(List<Twitter> tweets) {
 		this.tweets = tweets;
+	}
+
+	public List<Follower> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(List<Follower> followers) {
+		this.followers = followers;
 	}
 
 	@Override
