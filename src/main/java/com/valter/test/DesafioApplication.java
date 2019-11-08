@@ -18,6 +18,7 @@ public class DesafioApplication implements CommandLineRunner {
 	UserRepository uRepository;
 	@Autowired
 	TwitterRepository tRepository;
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(DesafioApplication.class, args);
