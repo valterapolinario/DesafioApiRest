@@ -75,4 +75,17 @@ public class TwitterResources {
 
 		return ResponseEntity.ok().body(lista);
 	}
+
+	@RequestMapping(value = "/{user}/{follow}", method = RequestMethod.GET)
+	public ResponseEntity<List<Twitter>> findByUserAndFollower() {
+
+		List<Twitter> lista = tService.findByUserAndFollower();
+
+		return ResponseEntity.ok().body(lista);
+	}
+
+	@RequestMapping(value = "/{follow}/{id_usuario}/{id_seguidor}", method = RequestMethod.POST)
+	public void insert(@PathVariable Integer id_user, Integer id_segui) {
+		tService.insertUserFollower(id_user, id_segui);
+	}
 }

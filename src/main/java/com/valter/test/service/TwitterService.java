@@ -55,4 +55,14 @@ public class TwitterService {
 	public List<Twitter> findTop10ByUserOrderByDesc(User user) {
 		return repo.findTop10ByUserOrderByIdDesc(user);
 	}
+
+	public List<Twitter> findByUserAndFollower() {
+		return repo.findByUserAndFollower();
+	}
+
+	public void insertUserFollower(Integer id_usuario, Integer id_seguidor) {
+		Integer idUser = id_usuario;
+		Integer idSegui = id_seguidor;
+		repo.insertUserFollower(idUser, idSegui);
+	}
 }
