@@ -13,7 +13,7 @@ import com.valter.test.repository.TwitterRepository;
 import com.valter.test.repository.UserRepository;
 
 @SpringBootApplication
-public class DesafioApplication implements CommandLineRunner {
+public class DesafioApplication implements CommandLineRunner {// interface que permite implementar um metodo auxiliar para executar alguma ação quando a aplicação iniciar(usado para executar a instanciação , e inserir registros no banco h2 
 	@Autowired
 	UserRepository uRepository;
 	@Autowired
@@ -27,7 +27,7 @@ public class DesafioApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Twitter twitter1 = new Twitter(null, "esta funcionando o tweet");
-		Twitter twitter2 = new Twitter(null, "esta funcionando o tweet e a coisa ta melhorando");
+		Twitter twitter2 = new Twitter(null, "esta funcionando o tweet e trazendo por usuario");
 		Twitter twitter3 = new Twitter(null, "esta funcionando o tweet  e testanto o top 10");
 		Twitter twitter4 = new Twitter(null, "esta funcionando o tweet este é o 4");
 		Twitter twitter5 = new Twitter(null, "esta funcionando o tweet este é o 5");

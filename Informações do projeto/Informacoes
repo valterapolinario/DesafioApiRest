@@ -1,0 +1,28 @@
+INFORMAÇÔES GERAIS DO PROJETO DESAFIO :
+
+SCRIPT DO BANCO:
+
+create database sa;
+use sa;
+
+Create table User( id int primary key auto_increment,
+					  nome varchar(100) not null ,
+                      email varchar(100));
+                      
+create table  Twitter (id int primary key auto_increment,	
+						  tweet varchar(200) not null ,
+                          user_id int,
+                          constraint fk_userTwitter foreign key(user_id)references User(id));
+                          
+
+
+create table users_folowwers (id_usuario int,
+							  Id_seguidor int,
+                              constraint fk_userUserFollower foreign key(id_usuario)references User(id));
+                              
+foi usado o banco h2 em memoria, pois a minha maquina esta com problemas com o MySql, o caminho para abrir o console do banco de dados, 
+url, nome do banco e senha, esta no arquivo aplication.properties.     
+
+ A tabela de relacionamento Users_folowwers foi criada diretamente no banco, para implentação do auto relacionamento de usuario.
+ 
+  

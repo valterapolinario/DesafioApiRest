@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.valter.test.domain.User;
 
-@Repository
+@Repository// anotação que identifica que a classe é um repositorio( reponsavel pela manipulação e persistencia de dados)
 public interface UserRepository extends JpaRepository<User, Integer> {
 
 }
