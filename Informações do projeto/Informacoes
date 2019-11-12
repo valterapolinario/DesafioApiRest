@@ -1,4 +1,4 @@
-INFORMAÇÔES GERAIS DO PROJETO DESAFIO :
+INFORMAÇÔES GERAIS DO PROJETO DESAFIO API REST :
 
 SCRIPT DO BANCO:
 
@@ -23,6 +23,16 @@ create table users_folowwers (id_usuario int,
 foi usado o banco h2 em memoria, pois a minha maquina esta com problemas com o MySql, o caminho para abrir o console do banco de dados, 
 url, nome do banco e senha, esta no arquivo aplication.properties.     
 
- A tabela de relacionamento Users_folowwers foi criada diretamente no banco, para implentação do auto relacionamento de usuario.
+ A tabela de relacionamento Users_folowwers foi criada diretamente no banco, para implentação do auto relacionamento de usuario. sua query se encontra
+ no arquivo DATA.SQL para que cada vez que a aplicação seja iniciada , ela seja criada no banco h2
  
+ INFORMAÇOES EXTRAS DO DESAFIO:
+ 
+ utilizei o padão mvc na implementação do projeto, separando as camadas e organizando os pacotes separados em função da funcinalidade de cada um.
+ 
+ PROBLEMAS ENFRENTADOS  :
+ 
+ esse desafio foi de longe o problema mais dificil que ja enfrentei, totalmente diferente de tudo que me foi apresentado academicamente,
+ a busca pelo conteudo foi grande , mas valeu cada segundo, me diverti bastante buscando cada informação, apesar de não ter conseguido concluir o desafio
+ fiquei mais empenhado em buscar e aprender cada vez mais sobre o conteudo.
   

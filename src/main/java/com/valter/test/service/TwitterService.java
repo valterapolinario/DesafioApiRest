@@ -22,7 +22,7 @@ public class TwitterService {
 	}
 
 	public Twitter findTwitterById(Integer id) { // metodo que retorna um unico registro(objeto) usando o id como filtro de busca
-		Optional<Twitter> obj = repo.findById(id); // uso do optional, um tipo do java 8 que funciona como um container(*caixa) para guardar o objeto retornado, caso objeto esteja vazio(a busca não encotrou resultados) evita o NullPointerException. 
+		Optional<Twitter> obj = repo.findById(id); // uso do optional, um tipo do java 8 que funciona como um container(*caixa) para guardar o objeto retornado, caso objeto esteja nulo(a busca não encotrou resultados e retorna nulo) evita o NullPointerException. 
 		return obj.orElseThrow(() -> new ObjectNotFoundException( // uso de uma função anonima, para retornar um objeto caso exista, senão retornar a exceção personalizada
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Twitter.class.getSimpleName())); // mesagem de retorno do erro que mostra o id não encontrado e tipo do objeto
 
@@ -35,7 +35,7 @@ public class TwitterService {
 
 	public Twitter updateTwitter(Twitter obj) {// metodo para chamar o serviço de atualizar um registro(objeto) no banco de dados
 
-		Twitter newObj = findTwitterById(obj.getId());// metodo que busca um registro (opbjeto) no banco para ser autalizado
+		Twitter newObj = findTwitterById(obj.getId());// metodo que busca um registro (opbjeto) no banco para ser autalizado servindo para verificar se existe o registro correspondente no banco
 		return repo.save(newObj); // usado o metodo de salvar, pois é o mesmo para atualizar e salvar
 	}
 

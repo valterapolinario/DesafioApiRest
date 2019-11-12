@@ -2,14 +2,14 @@ package com.valter.test.resources.exception;
 
 import java.io.Serializable;
 
-public class StandardError implements Serializable {
+public class StandardError implements Serializable { // classe auxiliar criada para guardar informações sobre o erro que vai ser manipulado
 	private static final long serialVersionUID = 1L;
 
 	private Integer status;
 	private String msg;
 	private Long timeStamp;
 
-	public StandardError(Integer status, String msg, Long timeStamp) {
+	public StandardError(Integer status, String msg, Long timeStamp)  {// metodo construtor com parametros
 		super();
 		this.status = status;
 		this.msg = msg;
